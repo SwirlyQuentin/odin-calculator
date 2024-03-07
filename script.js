@@ -1,8 +1,8 @@
 // To do next time
 // fix putting brackets on single digits
 // 
-// 
-// 
+// small-big = neg
+// evaluating gives wrong
 // 
 // 
 // 
@@ -83,7 +83,7 @@ function infixToPostfix(s) {
 
         else {
             while (stack.length != 0 && precedence(c) <= precedence(stack[stack.length - 1])) {
-                if (bigNumber){
+                if (bigNumber) {
                     bigNumber = false;
                     temp = "";
                     result.push("}");
@@ -92,7 +92,7 @@ function infixToPostfix(s) {
             }
             stack.push(c);
             numberCounter = 0;
-            if (bigNumber){
+            if (bigNumber) {
                 bigNumber = false;
                 temp = "";
                 result.push("}");
@@ -101,7 +101,7 @@ function infixToPostfix(s) {
 
     }
 
-    if (bigNumber){
+    if (bigNumber) {
         result.push("}");
     }
 
@@ -127,11 +127,8 @@ function precedence(c) {
 function evaluatePostFix(s) {
     let result = "";
     let stack = [];
-    let isA = true;
     let a = "";
     let b = "";
-    let bigNumberCounter = 0;
-    let flag = true;
 
     for (let i = 0; i < s.length; i++) {
         let c = s[i];
@@ -156,33 +153,13 @@ function evaluatePostFix(s) {
                     }
                 }
                 i += counter;
-                bigNumberCounter++;
-
-                if (isA) {
-                    b = parseFloat(bigNumber);
-                    isA = false;
-                }
-                else {
-                    a = parseFloat(bigNumber);
-                    isA = true;
-                }
+                stack.push(bigNumber);
 
             }
             else {
 
-                if (bigNumberCounter == 0){
-                    a = parseFloat(stack.pop());
-                    b = parseFloat(stack.pop());
-                    flag = false;
-                }
-                else if (isA && !isNaN(parseFloat(stack[stack.length - 1])) && flag) {
-                    b = parseFloat(stack.pop());
-                    isA = false;
-                }
-                else if (!isNaN(parseFloat(stack[stack.length - 1])) && flag){
-                    a = parseFloat(stack.pop());
-                    isA = true;
-                }
+                a = parseFloat(stack.pop());
+                b = parseFloat(stack.pop());
             }
 
             if (c == "+") {
@@ -206,23 +183,11 @@ function evaluatePostFix(s) {
 
     result = stack.pop();
 
-    result = Number((parseFloat(result)).toFixed(4)) + "";
-
-    let index = 0;
-    if (result[0] == "{"){
-        for (let i = 0; i < result.length; i++){
-            if (result[i] == "}"){
-                index = i;
-            }
-        }
-        result = result.substring(1, index);
-    }
-
     document.querySelector(".calc-screen").value = result;
 }
 
-function isBigNumber(num){
-    if ((num / 10) >= 1){
+function isBigNumber(num) {
+    if ((num / 10) >= 1) {
         return true;
     }
     return false;
