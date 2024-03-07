@@ -159,11 +159,11 @@ function evaluatePostFix(s) {
                 bigNumberCounter++;
 
                 if (isA) {
-                    a = parseFloat(bigNumber);
+                    b = parseFloat(bigNumber);
                     isA = false;
                 }
                 else {
-                    b = parseFloat(bigNumber);
+                    a = parseFloat(bigNumber);
                     isA = true;
                 }
 
