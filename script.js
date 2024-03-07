@@ -176,11 +176,11 @@ function evaluatePostFix(s) {
                     flag = false;
                 }
                 else if (isA && !isNaN(parseFloat(stack[stack.length - 1])) && flag) {
-                    a = parseFloat(stack.pop());
+                    b = parseFloat(stack.pop());
                     isA = false;
                 }
                 else if (!isNaN(parseFloat(stack[stack.length - 1])) && flag){
-                    b = parseFloat(stack.pop());
+                    a = parseFloat(stack.pop());
                     isA = true;
                 }
             }
