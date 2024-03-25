@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,45 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Calculator</h1>
+    <h1 class="title">Calculator</h1>
 
 
     <div class="calculator">
         <input type="text" class="calc-screen">
 
-        <button onclick="toScreen('0')">0</button>
-        <button onclick="toScreen('1')">1</button>
-        <button onclick="toScreen('2')">2</button>
-        <button onclick="toScreen('3')">3</button>
-        <button onclick="toScreen('4')">4</button>
-        <button onclick="toScreen('5')">5</button>
-        <button onclick="toScreen('6')">6</button>
-        <button onclick="toScreen('7')">7</button>
-        <button onclick="toScreen('8')">8</button>
-        <button onclick="toScreen('9')">9</button>
-        <button onclick="Evaluate()">=</button>
-        <button onclick="toScreen('÷')">÷</button>
-        <button onclick="toScreen('x')">x</button>
-        <button onclick="toScreen('-')">-</button>
-        <button onclick="toScreen('+')">+</button>
-        <button onclick="toScreen('&#40')">(</button>
-        <button onclick="toScreen('&#41')">)</button>
-        <button onclick="toScreen('.')">.</button>
-        <button onclick="clearScreen()">C</button>
+
+        <div class="buttons">
+            <div class="row1">
+                <button onclick="toScreen('7')">7</button>
+                <button onclick="toScreen('8')">8</button>
+                <button onclick="toScreen('9')">9</button>
+                <button onclick="toScreen('÷')">÷</button>
+                <button onclick="clearScreen()">C</button>
+            </div>
+            <div class="row2">
+                <button onclick="toScreen('4')">4</button>
+                <button onclick="toScreen('5')">5</button>
+                <button onclick="toScreen('6')">6</button>
+                <button onclick="toScreen('x')">x</button>
+                <button onclick="toScreen('&#40')">(</button>
+            </div>
+            <div class="row3">
+                <button onclick="toScreen('1')">1</button>
+                <button onclick="toScreen('2')">2</button>
+                <button onclick="toScreen('3')">3</button>
+                <button onclick="toScreen('-')">-</button>
+                <button onclick="toScreen('&#41')">)</button>
+            </div>
+            <div class="row4">
+                <button onclick="toScreen('0')">0</button>
+                <button onclick="toScreen('.')">.</button>
+                <button onclick="Evaluate()">=</button>
+                <button onclick="toScreen('+')">+</button>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
